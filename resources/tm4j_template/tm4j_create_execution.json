@@ -1,0 +1,12 @@
+{
+  "status": "#status",
+  "comment": "#comment",
+  "executionTime": 123,
+  "scriptResults": [
+    {
+      "index": 0,
+      "status": "#status",
+      "comment": ""
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+<!-- project -->
+	<groupId>no.itautomation</groupId>
+	<artifactId>itautomation</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>website</name>
+	<url>http://maven.apache.org</url>
+
+<!-- version management --> 
+<properties>
+    <reportVersion>2.3.1</reportVersion>
+    <allure-maven>2.8</allure-maven>
+    <commons-configuration>1.10</commons-configuration>
+    <selenium-java>3.141.59</selenium-java>
+    <cucumber-java>4.3.1</cucumber-java>
+    <cucumber-testng>4.3.1</cucumber-testng>
+    <cucumber-picocontainer>4.3.1</cucumber-picocontainer>
+    <assertj-core>3.13.2</assertj-core>
+    <selenide>5.4.1</selenide>
+    <slf4j-nop>1.7.25</slf4j-nop>
+    <httpmime>4.5.8</httpmime>
+    <maven-resources-plugin>3.1.0</maven-resources-plugin>
+    <maven-filtering>3.1.0</maven-filtering>
+    <maven-compiler-plugin>3.8.1</maven-compiler-plugin>
+    <maven-surefire-plugin>3.0.0-M3</maven-surefire-plugin>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  
+<!-- dependency management -->	
+<dependencies>
+		<!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons-configuration}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium-java}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber-java}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${cucumber-testng}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${cucumber-picocontainer}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj-core}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>selenide</artifactId>
+			<version>${selenide}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-nop</artifactId>
+			<version>${slf4j-nop}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>${httpmime}</version>
+		</dependency>
+	</dependencies>
+
+<!-- build management -->
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.shared</groupId>
+						<artifactId>maven-filtering</artifactId>
+						<version>${maven-filtering}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin}</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>configfailurepolicy</name>
+							<value>continue</value>
+						</property>
+					</properties>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+			
+					 <plugin>
+    <groupId>io.qameta.allure</groupId>
+    <artifactId>allure-maven</artifactId>
+    <version>${allure-maven}</version>
+    <configuration>
+        <reportVersion>${reportVersion}</reportVersion>
+    </configuration>
+</plugin>
+		</plugins>
+
+	</build>
+</project>

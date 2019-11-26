@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="IT Automation website tests" verbose="1"
+	parallel="classes">
+
+	<test name="Run All Tests in Google Chrome">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="browserVersion" value="78.0" />
+		<parameter name="isRemoteEnabled" value="true" />
+	 
+	  <packages>		
+		<package name="no.itautomation.website.runners.*"/>
+	</packages>
+	
+ </test>
+</suite>  
