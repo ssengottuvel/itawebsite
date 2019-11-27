@@ -89,8 +89,6 @@ public class ItAutomationDriver {
 			File scrFile = ((TakesScreenshot) driver.getWebDriver()).getScreenshotAs(OutputType.FILE);
 			TestSuiteInitialization.screenshotName.set(scrFile);
 			FileUtils.copyFile(scrFile, new File(fileName));
-
-			// logOut();
 		}
 		driver.close();
 

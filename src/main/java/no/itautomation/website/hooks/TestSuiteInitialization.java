@@ -22,7 +22,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import no.itautomation.website.util.TestResultManager;
 
-
 public class TestSuiteInitialization extends AbstractTestNGCucumberTests {
 
 	public SessionObject ssObj;
@@ -32,37 +31,40 @@ public class TestSuiteInitialization extends AbstractTestNGCucumberTests {
 	public TestResultManager testResultManager;
 	public static ThreadLocal<String> tcName;
 	public static ThreadLocal<File> screenshotName;
-	
 
 	@BeforeSuite
 	public void setUp() {
-		//Arrays.stream(LogManager.getLogManager().getLogger("").getHandlers()).forEach(h -> h.setLevel(Level.SEVERE));
+		// Arrays.stream(LogManager.getLogManager().getLogger("").getHandlers()).forEach(h
+		// -> h.setLevel(Level.SEVERE));
 		initializeObject();
 		tcName = new ThreadLocal<String>();
 		screenshotName = new ThreadLocal<File>();
 	}
-	
+
 	@Parameters({ "browserName", "browserVersion", "isRemoteEnabled" })
 	@BeforeClass
 	public void setUp(String browserName, String browserVersion, String isRemoteEnabled) {
 		browserDetails.set(new String[] { browserName, browserVersion, isRemoteEnabled });
 	}
-	
+
 	@BeforeMethod
 	public void beforemethod() {
 		testResultManager = new TestResultManager(SessionObject.getTestCycleID());
 	}
 
 	@AfterMethod
-	public void tearDown(ITestResult testResult) throws UnsupportedOperationException, ClientProtocolException, IOException {
-		
+	public void tearDown(ITestResult testResult)
+			throws UnsupportedOperationException, ClientProtocolException, IOException {
+
 		String resultStatus = (testResult.isSuccess()) ? "Pass" : "Fail";
 		// Check test status, if test failed, close the webdriver
 		if (resultStatus.equals("Fail")) {
 			// Close the webdriver in case of failure
-			//WebDriverRunner.getWebDriver().close();
+			// WebDriverRunner.getWebDriver().close();
 		}
-		String comment = (resultStatus.equals("Pass")) ? TestResultManager.testResultCommonMessage : "Testcase Failed";
+		String comment = (resultStatus.equals("Pass"))
+				? TestResultManager.testResultCommonMessage + "Browser under Test: " + browserDetails.get()[0] + ". Browser version : " + browserDetails.get()[1]
+				: "Testcase Failed. Browser under Test: " + browserDetails.get()[0] + ". Browser version: " + browserDetails.get()[1];
 		String testComment = "";
 		if (testResult.getThrowable() != null) {
 			testComment = testResult.getThrowable().getLocalizedMessage();
@@ -72,7 +74,7 @@ public class TestSuiteInitialization extends AbstractTestNGCucumberTests {
 			testComment = testComment.replaceAll("[ø]", "o").toString();
 			testComment = testComment.replaceAll("[å]", "a").toString();
 		}
-		
+
 		testResultManager.setTestcaseID(tcName.get());
 		testResultManager.setStatus(resultStatus);
 		testResultManager.setActualResultComment(testComment, testResult.getEndMillis() - testResult.getStartMillis());

@@ -2,11 +2,13 @@ package no.itautomation.website.pages.home;
 
 import org.openqa.selenium.By;
 
+import com.codeborne.selenide.Condition;
+
 import no.itautomation.website.hooks.ItAutomationDriver;
 
 public class HomePage {
 	
-    private String HOME_TEXT = "//div[@class='elementor-widget-container']//p[text()='<replace>']";
+    public String HOME_TEXT = "//*[@id='post-10']/div/div/div/div/section[1]/div[3]/div/div[1]/div/div/div[1]/div/div";
 
 	protected ItAutomationDriver driver;
 
@@ -14,8 +16,4 @@ public class HomePage {
 		this.driver = driver;
 	}
 	
-	public boolean isHomePageTextExisit(String homeText) {
-		return driver.getElement(By.xpath(HOME_TEXT.replace("<replace>", homeText))).exists();
-	}
-
 }

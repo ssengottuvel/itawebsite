@@ -32,7 +32,7 @@ public class TestResultManager {
 	private String testCycleID;
 	private String testCaseID;
 	private JsonObject reqBody;
-	public static final String testResultCommonMessage = "Testcase Successfully Executed";
+	public static final String testResultCommonMessage = "Test was success";
 
 	public TestResultManager(String testCycleID) {
 		

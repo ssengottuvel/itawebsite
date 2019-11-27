@@ -5,6 +5,10 @@ package no.itautomation.website.steps;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.openqa.selenium.By;
+
+import com.codeborne.selenide.Condition;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -33,8 +37,9 @@ public class WTA_T1 {
 	}
 
 	@Then("I should see the text {string}")
-	public void i_should_see_the_text(String string) {
-		assertThat(homePage.isHomePageTextExisit(string.trim())).isTrue();
+	public void i_should_see_the_text(String homeText) {
+		
+		itAutomation.getElement(By.xpath(homePage.HOME_TEXT)).shouldHave(Condition.text(homeText));
 	}
 
 	
