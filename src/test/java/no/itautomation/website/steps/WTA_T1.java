@@ -7,6 +7,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import no.itautomation.website.hooks.ItAutomationDriver;
 import no.itautomation.website.pages.home.HomePage;
 
@@ -36,4 +37,5 @@ public class WTA_T1 {
 		assertThat(homePage.isHomePageTextExisit(string.trim())).isTrue();
 	}
 
+	
 }

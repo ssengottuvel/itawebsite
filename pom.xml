@@ -53,7 +53,7 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>${cucumber-java}</version>
-		</dependency>
+		</dependency>			
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
