@@ -3,15 +3,13 @@
  */
 package no.itautomation.website.steps;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
-
 import com.codeborne.selenide.Condition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import no.itautomation.website.hooks.ItAutomationDriver;
 import no.itautomation.website.pages.home.HomePage;
 
@@ -31,16 +29,12 @@ public class WTA_T1 {
 
 	@Given("I am on home page")
 	public void i_am_on_home_page() {
-		assertThat(itAutomation.driver.getWebDriver().getTitle())
-				.isEqualToIgnoringCase("IT Automation – Your Automation Partner");
-
+		assertEquals(itAutomation.driver.getWebDriver().getTitle().toString(), "IT Automation – Your Automation Partner");
 	}
 
 	@Then("I should see the text {string}")
 	public void i_should_see_the_text(String homeText) {
-		
 		itAutomation.getElement(By.xpath(homePage.HOME_TEXT)).shouldHave(Condition.text(homeText));
 	}
 
-	
 }
