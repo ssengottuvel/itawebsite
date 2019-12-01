@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="4" name="IT Automation Website test" verbose="1"
+	parallel="classes">
+
+	<test name="Run All Tests in Google Chrome">
+		<parameter name="browserName" value="chrome" />
+		<parameter name="browserVersion" value="78.0" />
+		<parameter name="isRemoteEnabled" value="true" />
+		<classes>
+
+			<!-- HENTHIFIL -->
+			<class name="no.itautomation.website.runners.WTA_T4"></class> 			
+
+		</classes>
+	</test>
+</suite>  
