@@ -12,7 +12,7 @@ Feature: Request a free consultation via IT Automation website - Positive flow
     Then I should receive conformation message '<Confirmation>'
 
     Examples: 
-      | Name    | Email 										| Message            	| Confirmation                        														|
-      | Senthil |  autotest@itautomation.no | Hey, this is cool! 	| Thanks for contacting us! We will be in touch with you shortly. |
-  		| Rohit		|  autotest@itautomation.no | Hey, I am Rohit!		| Thanks for contacting us! We will be in touch with you shortly. |
+      | Name    									| Email 										| Message            	| Confirmation                        														|
+      | Senthilkumar Sengottuvel	|  autotest@itautomation.no | Hey, this is cool! 	| Thanks for contacting us! We will be in touch with you shortly. |
+  		| Rohit Senthilkumar				|  autotest@itautomation.no | Hey, I am Rohit!		| Thanks for contacting us! We will be in touch with you shortly. |
       
