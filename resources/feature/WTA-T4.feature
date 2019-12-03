@@ -3,7 +3,7 @@ Feature: Request a free consultation - Negative test
   @TestCaseKey=WTA-T4
   Scenario Outline: Request a free consultation - Negative test
     Given I am on home page
-    Then I should see the text 'Reliable Test/Process Automation Partner'
+    Then I should see the text 'Reliable Test and Process Automation Partner'
     And I click 'Contact' menu
     Then I enter my name '<Name>'
     And I enter my email address '<Email>'
