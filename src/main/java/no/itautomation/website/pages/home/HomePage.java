@@ -12,6 +12,7 @@ public class HomePage {
     public String CONTACT_MENU = "//a[contains(text(),'Contact')]";
     
 	protected ItAutomationDriver driver;
+	
 
 	public HomePage(ItAutomationDriver driver) {
 		this.driver = driver;
